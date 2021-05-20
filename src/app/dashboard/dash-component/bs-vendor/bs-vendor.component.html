@@ -1,0 +1,87 @@
+<div class="m-2">
+  <!-- Add Vendor Form -->
+  <div class="accordion" id="accordionExample">
+    <div class="accordion-item border-primary">
+      <h2 class="accordion-header bg-primary" id="headingOne">
+        <button
+          class="accordion-button btn btn-primary"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseOne"
+          aria-expanded="true"
+          aria-controls="collapseOne"
+        >
+          <span class="fw-bold"><i class="fas fa-plus"></i> Add A Vendor </span>
+        </button>
+      </h2>
+      <div
+        id="collapseOne"
+        class="accordion-collapse collapse show"
+        aria-labelledby="headingOne"
+        data-bs-parent="#accordionExample"
+      >
+        <div class="accordion-body">
+          <form (ngSubmit)="save()" [formGroup]="vendorForm" id="formVendor" novalidate>
+            <div class="form-group">
+              <label for="Vendor">
+                Vendor<span class="text-danger">*</span>
+              </label>
+              <input
+                type="text"
+                id="vendor"
+                formControlName="slug"
+                class="form-control mb-3"
+                required
+              />
+            </div>
+            <div class="d-flex justify-content-around">
+              <button
+                class="btn btn-primary w-25"
+                [disabled]="!vendorForm.valid"
+              >
+                Add
+              </button>
+              <input type="reset" class="btn btn-danger w-25" value="cancel" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="m-2">
+  <!-- Vendor Table -->
+  <div class="card border-primary border">
+    <div class="card-header bg-primary text-light">
+      <i class="fab fa-get-pocket"></i> All Vendors
+    </div>
+    <div class="card-body table-responsive">
+      <table border="1" class="table table-striped table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">Vendor Name</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of Vendors; let i = index">
+            <th class="fw-normal">{{ i + 1 }}</th>
+            <!-- <td class="fw-bold">{{ item.title }}</td> -->
+            <td class="fw-bold text-capitalize"><pre> {{ item.vendorData.slug }}</pre></td>
+            <td class="d-flex justify-content-around">
+              <button class="btn btn-primary w-25">Edit</button>
+              <button
+                class="btn btn-danger w-25"
+                (click)="delete(item.id)"
+              >
+                Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

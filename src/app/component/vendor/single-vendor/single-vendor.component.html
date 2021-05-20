@@ -1,0 +1,49 @@
+<div class="container" *ngIf="Vendors">
+  <hr />
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <a routerLink="/" class="fw-bold text-dark">Home</a>
+    </li>
+    <li class="breadcrumb-item">
+      <a routerLink="../../vendor" class="fw-bold text-dark">Vendors</a>
+    </li>
+    <li class="breadcrumb-item active text-capitalize">
+      {{ Vendors.vendorData }}
+    </li>
+  </ol>
+  <hr />
+  <h1 class="text-capitalize">
+    The fastest way to pass your {{ Vendors.vendorData }} with the help of
+    dumps:
+  </h1>
+  <p class="text-break">
+    <a routerLink="/">{{name}}</a> best place to get
+    {{ Vendors.vendorData }} exam here you will get confirmed questions for your
+    exam. {{ Vendors.vendorData }} is one of the most famous technology provider
+    around the world. {{ Vendors.vendorData }} is one of the leading IT company
+    that offer certification programs. It provides training for certification of
+    candidates from entry level to professionals.
+    <a routerLink="/">{{name}}</a> offers certification training in an
+    easier way. {{ Vendors.vendorData }} braindumps offer that will be enough to
+    get certified in the first attempt. We are providing 100% money back
+    guarantee and also providing 3 months free updates. If you want to get
+    complete file of {{ Vendors.vendorData }} exam questions then you need to
+    buy that file from us we are providing {{ Vendors.vendorData }} real exam
+    dumps files on very cheap rates.
+  </p>
+  <hr>
+  <nav class="nav border-bottom border-2 border-danger flex-column flex-sm-row justify-content-start">
+    <a 
+    class="flex-sm-fill text-sm-center nav-link" 
+    aria-current="page active" 
+    routerLink="all-exam">
+    All Exam
+  </a>
+    <a 
+    class="flex-sm-fill text-sm-center nav-link" 
+    routerLink="all-cert">
+    All Certificates
+  </a>
+  </nav>
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,61 @@
+<ul
+  class="navbar nav container navbar-expand-sm d-flex justify-content-between"
+>
+  <div>
+    <li class="nav-item">
+      <a
+        href="mailto:usermushtaq3424@gmail.com"
+        class="nav-link text-dark fw-normal"
+      >
+        <span> <i class="bi bi-envelope-fill"></i> Support Email </span>
+      </a>
+    </li>
+  </div>
+  <div class="d-flex">
+    <li class="nav-item border-end">
+      <a class="nav-link nav-link text-dark fw-normal" href="#">
+        <span> <i class="bi bi-bag-check-fill"></i> Cart </span>
+      </a>
+    </li>
+    <ng-template #isGuest>
+      <li class="nav-item">
+        <a class="nav-link text-dark fw-normal" routerLink="login">
+          <span>
+            <i class="fas fa-key"></i>
+            Login / Register
+          </span>
+        </a>
+      </li>
+    </ng-template>
+
+    <li class="nav-item" *ngIf="appUser; else isGuest">
+      <div class="dropdown">
+        <a
+          class="nav-link text-dark fw-bolder dropdown-toggle"
+          id="navbarDropdown"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <span class="fw-normal">
+            <i class="bi bi-person-circle"></i>
+            {{ appUser.name }}
+          </span>
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <ng-container *ngIf="appUser.isAdmin">
+            <li>
+              <a class="dropdown-item" routerLink="admin"> Admin Dashboard </a>
+            </li>
+            <div class="dropdown-divider"></div>
+          </ng-container>
+          <li>
+            <a class="dropdown-item" routerLink="/" (click)="logout()"
+              >Logout</a
+            >
+          </li>
+        </ul>
+      </div>
+    </li>
+  </div>
+</ul>

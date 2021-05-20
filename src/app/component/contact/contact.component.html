@@ -1,0 +1,98 @@
+<div class="container">
+  <hr />
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a routerLink="/" class="fw-bold text-dark">Home</a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">Contact Form</li>
+    </ol>
+  </nav>
+  <hr />
+  <h1>Contact Form</h1>
+  <section class="row">
+    <div class="col-lg-8 col-md-8 col-12">
+      <p class="fw-light">
+        <strong>
+          You can contact us any time. Our support team is available 24/7 to
+          serve you. Fell free to contact us.
+        </strong>
+      </p>
+      <form action="">
+        <div class="form-group">
+          <label for="name">Name <span class="text-danger">*</span></label>
+          <input
+            type="text"
+            class="form-control text-capitalize mb-3"
+            placeholder="enter your full name."
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="email">Email <span class="text-danger">*</span></label>
+          <input
+            type="email"
+            class="form-control mb-3"
+            placeholder="Enter Your Valid Email."
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="subject"
+            >Subject <span class="text-danger">*</span></label
+          >
+          <input
+            type="text"
+            class="form-control text-capitalize mb-3"
+            placeholder="enter your subject."
+          />
+        </div>
+        <div class="form-group">
+          <label for="message"
+            >Message <span class="text-danger">*</span></label
+          >
+          <textarea
+            id="message"
+            class="form-control mb-3"
+            placeholder="Type Your Message."
+          ></textarea>
+        </div>
+        <button class="btn btn-primary w-auto mb-5 fw-light">
+          Send Message
+        </button>
+      </form>
+    </div>
+    <div class="col-lg-4 col-md-4 col-12">
+      <h2>Our Contacts</h2>
+      <h4 class="fw-light">Address:</h4>
+      <p class="text-muted text-break">
+        35, Lorem Lis Street, Park Ave California, US
+      </p>
+      <h4 class="fw-light">Email:</h4>
+      <p>
+        <a routerLink="mailto:umermushtaq3424@gmail.com" id="link">
+          support@dumpsexam.com
+        </a>
+      </p>
+      <h4 class="fw-light">Social</h4>
+      <p class="d-flex gap-2">
+        <a href="http://" class="text-muted">
+          <i class="bi bi-facebook" id="social"></i>
+        </a>
+        <a href="http://" class="text-muted">
+          <i class="bi bi-instagram" id="social"></i>
+        </a>
+        <a href="http://" class="text-muted">
+          <i class="bi bi-google" id="social"></i>
+        </a>
+      </p>
+      <h4 class="fw-light">About Us</h4>
+      <p class="text-muted">
+        <a routerLink="/" id="link">{{ name }}</a> is best place to prepare your
+        exam with 100% reliable study material. We are providing free sample
+        questions here so you can check our study material quality . Don't
+        forget to buy complete exam file.
+      </p>
+    </div>
+  </section>
+</div>

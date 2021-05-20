@@ -1,0 +1,18 @@
+#link {
+  color: gray;
+}
+
+#link:hover {
+  color: blue;
+  font-size: large;
+}
+
+#social {
+  font-size: x-large;
+}
+
+#social:hover {
+  font-size: xx-large;
+
+}
+

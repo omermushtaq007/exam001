@@ -1,0 +1,9 @@
+span:hover {
+  color: blue;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.dropdown-menu{
+  z-index: 12000;
+}

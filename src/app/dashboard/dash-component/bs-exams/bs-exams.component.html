@@ -1,0 +1,236 @@
+<div class="m-2">
+  <div class="accordion" id="accordionExample">
+    <div class="accordion-item border-primary">
+      <h2 class="accordion-header bg-primary" id="headingOne">
+        <button
+          class="accordion-button btn btn-primary"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseOne"
+          aria-expanded="true"
+          aria-controls="collapseOne"
+        >
+          <span class="fw-bold text-capitalize"
+            ><i class="fas fa-plus"></i> Add A new Exam
+          </span>
+        </button>
+      </h2>
+      <div
+        id="collapseOne"
+        class="accordion-collapse collapse show"
+        aria-labelledby="headingOne"
+        data-bs-parent="#accordionExample"
+      >
+        <div class="accordion-body">
+          <form (ngSubmit)="save()" [formGroup]="examForm" novalidate>
+            <div class="form-group">
+              <label for="vendor">
+                Vendor<span class="text-danger">*</span>
+              </label>
+              <select
+                type="text"
+                id="vendor"
+                formControlName="slug"
+                class="form-control mb-3 text-capitalize"
+                required
+              >
+                <option>Vendor</option>
+                <option
+                  [value]="item.id"
+                  *ngFor="let item of Vendors"
+                  class="text-capitalize"
+                >
+                  {{ item.vendorData.slug }}
+                </option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="examCode" class="text-capitalize">
+                exam code<span class="text-danger">*</span>
+              </label>
+              <input
+                type="number"
+                id="examCode"
+                formControlName="examCode"
+                class="form-control mb-3"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="examName" class="text-capitalize">
+                exam name<span class="text-danger">*</span>
+              </label>
+              <input
+                type="text"
+                id="examName"
+                formControlName="examName"
+                class="form-control mb-3"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="certificateName" class="text-capitalize">
+                certification name<span class="text-danger">*</span>
+              </label>
+              <select
+                type="text"
+                id="certificateName"
+                formControlName="certificateName"
+                class="form-control mb-3 text-capitalize"
+                required
+              >
+                <option>Certificate</option>
+                <option
+                  [value]="item.certificateData.certificate"
+                  *ngFor="let item of Certificates"
+                  class="text-capitalize"
+                >
+                  {{ item.certificateData.certificate }}
+                </option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="questions" class="text-capitalize">
+                Number of question<span class="text-danger">*</span>
+              </label>
+              <input
+                type="number"
+                id="questions"
+                formControlName="questions"
+                class="form-control mb-3"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="date" class="text-capitalize">
+                update exam date <span class="text-danger">*</span>
+              </label>
+              <input
+                type="date"
+                id="date"
+                formControlName="date"
+                class="form-control mb-3"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="price" class="text-capitalize">
+                price<span class="text-danger">*</span>
+              </label>
+              <input
+                type="number"
+                id="price"
+                formControlName="price"
+                class="form-control mb-3"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="status" class="text-capitalize">
+                status<span class="text-danger">*</span>
+              </label>
+              <select
+                type="text"
+                id="status"
+                formControlName="status"
+                class="form-control mb-3 text-capitalize"
+                required
+              >
+                <option value="enable">Enable</option>
+                <option value="disable">Disable</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="retired">
+                Retired<span class="text-danger">*</span>
+              </label>
+              <select
+                type="text"
+                id="retired"
+                formControlName="retired"
+                class="form-control mb-3 text-capitalize"
+                required
+              >
+                <option value="enable">yes</option>
+                <option value="disable">no</option>
+              </select>
+            </div>
+
+            <div class="d-flex justify-content-around">
+              <button class="btn btn-primary w-25" [disabled]="!examForm.valid">
+                Add
+              </button>
+              <input type="reset" class="btn btn-danger w-25" value="cancel" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="m-2">
+  <!-- Exams Table -->
+  <div class="card border-primary border">
+    <div class="card-header bg-primary text-light text-capitalize fw-bold">
+      <i class="fab fa-get-pocket"></i> All exams
+    </div>
+    <div class="card-body table-responsive">
+      <table border="1" class="table table-striped table table-bordered">
+        <thead>
+          <tr class="text-capitalize">
+            <th scope="col">id</th>
+            <th scope="col">Slug</th>
+            <th scope="col">Exam Name</th>
+            <th scope="col">Exam code</th>
+            <th scope="col">Certificate</th>
+            <th scope="col">No. of question</th>
+            <th scope="col">date</th>
+            <th scope="col">Status</th>
+            <th scope="col">retired</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of Exams; let i = index">
+            <th class="fw-normal">{{ i + 1 }}</th>
+            <!-- <td class="fw-bold">{{ item.title }}</td> -->
+            <td class="fw-bold text-capitalize">
+              <pre> {{ item.examData.slug }}</pre>
+            </td>
+            <td class="fw-bold text-capitalize">
+              <pre> {{ item.examData.examName }}</pre>
+            </td>
+            <td class="fw-bold text-capitalize">
+              <pre> {{ item.examData.examCode }}</pre>
+            </td>
+            <td class="fw-bold text-capitalize">
+              <pre> {{ item.examData.certificateName }}</pre>
+            </td>
+            <td class="fw-bold text-capitalize">
+              <pre> {{ item.examData.questions }}</pre>
+            </td>
+            <td class="fw-bold text-capitalize">
+              <pre> {{ item.examData.date }}</pre>
+            </td>
+            <td class="fw-bold text-capitalize">
+              <pre> {{ item.examData.retired }}</pre>
+            </td>
+
+            <td class="fw-bold text-capitalize">
+              <pre> {{ item.examData.status }}</pre>
+            </td>
+
+            <td class="d-flex justify-content-around">
+              <button class="btn btn-primary">Edit</button>
+              <button class="btn btn-danger" (click)="delete(item.id)">
+                Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
